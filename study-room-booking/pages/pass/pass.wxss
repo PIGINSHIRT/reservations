@@ -1,0 +1,102 @@
+/* pages/pass/pass.wxss */
+.container {
+  padding: 40rpx;
+  background-color: #f0f2f5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pass-card {
+  width: 100%;
+  background: linear-gradient(135deg, #1890ff 0%, #0050b3 100%);
+  border-radius: 30rpx;
+  padding: 40rpx;
+  color: white;
+  box-shadow: 0 10rpx 30rpx rgba(24, 144, 255, 0.3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40rpx;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+  padding-bottom: 20rpx;
+}
+
+.title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+
+.status-dot {
+  width: 20rpx;
+  height: 20rpx;
+  background-color: #52c41a; /* 绿色代表生效中 */
+  border-radius: 50%;
+  box-shadow: 0 0 10rpx #52c41a;
+}
+
+.blink {
+  animation: blinker 1.5s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+.row {
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+}
+
+.label {
+  opacity: 0.8;
+}
+
+.value {
+  font-weight: bold;
+  font-size: 34rpx;
+  margin-left: 20rpx;
+}
+
+.btn-area {
+  margin-top: 60rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.open-btn {
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 50%;
+  background: white;
+  color: #1890ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10rpx 20rpx rgba(0,0,0,0.1);
+  font-weight: bold;
+  font-size: 36rpx;
+  border: 8rpx solid rgba(255,255,255,0.5);
+}
+
+.open-btn .icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.btn-hover {
+  background: #e6f7ff;
+  transform: scale(0.95);
+}
+
+.tip {
+  margin-top: 30rpx;
+  font-size: 24rpx;
+  opacity: 0.7;
+}
