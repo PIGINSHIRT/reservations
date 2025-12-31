@@ -1,0 +1,122 @@
+/* pages/seat-select/seat-select.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f7f7f7;
+}
+
+/* 1. 顶部地图 */
+.map-area {
+  background: #fff;
+  padding: 20rpx;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+.map-img {
+  width: 100%;
+  border-radius: 12rpx;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.1);
+}
+.map-tip { font-size: 24rpx; color: #999; margin-top: 10rpx; }
+
+/* 2. 区域 Tabs */
+.area-tabs-container {
+  background: #fff;
+  padding: 10rpx 0;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.05);
+  z-index: 10;
+}
+.area-tabs {
+  display: flex;
+  white-space: nowrap;
+  padding-left: 20rpx;
+}
+.tab-item {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16rpx 30rpx;
+  margin-right: 20rpx;
+  background: #f0f2f5;
+  border-radius: 12rpx;
+  min-width: 140rpx;
+  border: 2rpx solid transparent;
+}
+.tab-item.active {
+  background: #e6f7ff;
+  border-color: #1890ff;
+  color: #1890ff;
+}
+.tab-name { font-size: 28rpx; font-weight: bold; }
+.tab-desc { font-size: 22rpx; opacity: 0.7; margin-top: 4rpx; }
+
+/* 3. 座位网格 */
+.seat-grid-scroll {
+  flex: 1; /* 占满剩余空间 */
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.seat-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  padding-bottom: 120rpx; /* 防止被底部栏遮挡 */
+}
+.seat-wrapper {
+  width: 18%; /* 一行约5个 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+.seat-box {
+  width: 80rpx;
+  height: 80rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2rpx solid #e0e0e0;
+  box-shadow: 0 2rpx 6rpx rgba(0,0,0,0.05);
+  transition: all 0.2s;
+}
+.status-icon { font-size: 32rpx; }
+.seat-no { font-size: 24rpx; color: #666; margin-top: 8rpx; font-weight: 500;}
+
+/* 状态样式 */
+/* 被占用 */
+.seat-box.occupied {
+  background-color: #f5f5f5;
+  border-color: #ddd;
+  opacity: 0.6;
+}
+/* 选中 */
+.seat-box.selected {
+  background-color: #1890ff;
+  border-color: #1890ff;
+  transform: scale(1.05);
+}
+/* 空闲VIP */
+.seat-box.vip { border-color: #ffd700; background: #fffdf0; }
+
+.empty-tip { width: 100%; text-align: center; color: #999; margin-top: 100rpx; }
+
+/* 4. 底部栏 */
+.footer-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: #fff;
+  padding: 20rpx 30rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -4rpx 20rpx rgba(0,0,0,0.05);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.selected-info { display: flex; flex-direction: column; }
+.selected-info text:first-child { font-size: 30rpx; font-weight: bold; color: #333; }
+.price-info { font-size: 24rpx; color: #666; }
+.confirm-btn { margin: 0; width: 240rpx; border-radius: 40rpx; }

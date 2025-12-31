@@ -1,0 +1,52 @@
+<view class="container">
+  
+  <view class="map-area">
+    <image class="map-img" src="cloud://你的环境ID/seat-map.jpg" mode="widthFix" bindtap="previewMap"></image>
+    <view class="map-tip">点击查看区域分布大图</view>
+  </view>
+
+  <view class="area-tabs-container">
+    <scroll-view scroll-x class="area-tabs" enable-flex>
+      <block wx:for="{{areaList}}" wx:key="id">
+        <view 
+          class="tab-item {{currentAreaId === item.id ? 'active' : ''}}" 
+          bindtap="switchArea" 
+          data-id="{{item.id}}">
+          <text class="tab-name">{{item.name}}</text>
+          <text class="tab-desc">{{item.desc}}</text>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <scroll-view scroll-y class="seat-grid-scroll">
+    <view class="seat-grid">
+      <block wx:for="{{currentSeats}}" wx:key="seatNo">
+        <view class="seat-wrapper" bindtap="onSeatTap" data-item="{{item}}">
+          
+          <view class="seat-box {{item.status}} {{selectedSeat === item.seatNo ? 'selected' : ''}}">
+            <block wx:if="{{item.status === 'occupied'}}">
+              <text class="status-icon">🔒</text> </block>
+            <block wx:elif="{{selectedSeat === item.seatNo}}">
+              <text class="status-icon">✅</text> </block>
+            <block wx:else>
+              <text class="status-icon">{{item.type === 'vip' ? '👑' : '🪑'}}</text> </block>
+          </view>
+          
+          <text class="seat-no">{{item.seatNo}}</text>
+        </view>
+      </block>
+      
+      <view wx:if="{{currentSeats.length === 0}}" class="empty-tip">加载中或该区域暂无座位</view>
+    </view>
+  </scroll-view>
+
+  <view class="footer-bar">
+    <view class="selected-info">
+      <text wx:if="{{selectedSeat}}">已选：{{selectedSeat}}号座</text>
+      <text wx:else style="color: #999;">请选择座位</text>
+      <text class="price-info" wx:if="{{selectedSeat}}">({{bookingInfo.mode === 'day' ? '按天' : '按时'}})</text>
+    </view>
+    <button class="confirm-btn" type="primary" disabled="{{!selectedSeat}}" bindtap="submitBooking">立即预定</button>
+  </view>
+</view>

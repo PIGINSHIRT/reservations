@@ -1,0 +1,27 @@
+<view class="container">
+  <view class="pass-card">
+    <view class="header">
+      <text class="title">当前通行权限</text>
+      <view class="status-dot blink"></view>
+    </view>
+    
+    <view class="info">
+      <view class="row">
+        <text class="label">座位号：</text>
+        <text class="value">{{booking.seatNo}} 号座</text>
+      </view>
+      <view class="row">
+        <text class="label">有效期至：</text>
+        <text class="value">{{endTimeStr}}</text>
+      </view>
+    </view>
+
+    <view class="btn-area">
+      <button class="open-btn" bindtap="onOpenDoor" hover-class="btn-hover">
+        <text class="icon">🔓</text>
+        <text>一键开大门</text>
+      </button>
+      <text class="tip">请在门禁处点击使用</text>
+    </view>
+  </view>
+</view>
